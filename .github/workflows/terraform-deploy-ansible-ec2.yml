@@ -4,7 +4,6 @@ jobs:
   terraform-deploy:
     runs-on: ubuntu-latest
     steps:
-     steps:
       - name: AWS authentication
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -24,4 +23,3 @@ jobs:
       - name: run a plan
         run: terraform plan
 
-        
