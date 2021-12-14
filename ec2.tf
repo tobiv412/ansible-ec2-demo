@@ -9,7 +9,7 @@ resource "aws_security_group" "my_app_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["185.100.71.242/32"]
+    cidr_blocks = ["188.30.162.189/32"]  #IP ADDRESS
   }
 
   ingress {
@@ -25,7 +25,7 @@ resource "aws_security_group" "my_app_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["185.100.71.242/32"]
+    cidr_blocks = ["188.30.162.189/32"] #IP ADDRESS
   }
 
   egress {

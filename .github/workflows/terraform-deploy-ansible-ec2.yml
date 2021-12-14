@@ -1,0 +1,25 @@
+name: Terraform deployment with Github Actions
+on: [push]
+jobs:
+  terraform-deploy:
+    runs-on: ubuntu-latest
+    steps:
+     steps:
+      - name: AWS authentication
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
+      - name: git clone my repo
+        uses: actions/checkout@v2
+
+      - name: TF ready to go
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Init our project
+        run: terraform init
+
+      - name: run a plan
+        run: terraform plan
